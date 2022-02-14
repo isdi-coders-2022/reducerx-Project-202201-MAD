@@ -2,10 +2,10 @@ import './App.scss';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
 
-function App() {
+export function App() {
     return (
         <div className="App">
-            <header>
+            <header id="header">
                 <Header />
             </header>
             <Footer />
