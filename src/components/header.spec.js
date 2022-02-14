@@ -1,5 +1,4 @@
-import { queryByText, screen, render } from '@testing-library/react';
-import { App } from '../App';
+import { render } from '@testing-library/react';
 import { Header } from './header';
 
 describe('Given the component function Header', () => {
