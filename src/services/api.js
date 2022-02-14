@@ -11,3 +11,12 @@ export function getAll() {
 export function getAllFav() {
     return axios.get(FAV_COCKTAILS);
 }
+export function setFav(cocktail) {
+    return axios.post(FAV_COCKTAILS, cocktail);
+}
+export function update(cocktail) {
+    return axios.patch(COCKTAILS_API + cocktail.id, cocktail);
+}
+export function removeFav(id) {
+    return axios.delete(FAV_COCKTAILS + id);
+}
