@@ -1,12 +1,14 @@
 import './App.scss';
 import { Footer } from './components/footer';
+import { Header } from './components/header';
 
 function App() {
     return (
         <div className="App">
-            <footer id="footer">
-                <Footer />
-            </footer>
+            <header>
+                <Header />
+            </header>
+            <Footer />
         </div>
     );
 }
