@@ -7,11 +7,7 @@ export function CocktailsReducer(state, action) {
         case cocktailActionTypes.add:
             return [...state, action.cocktail];
         case cocktailActionTypes.toggle:
-            return state.map((item) =>
-                item.id === action.cocktail.id
-                    ? { ...item, isCompleted: !item.isCompleted }
-                    : item
-            );
+            return state.some((item) => item.id === action.cocktail.id);
         case cocktailActionTypes.remove:
             return state.filter((item) => item.id !== action.cocktail.id);
         default:
