@@ -2,7 +2,7 @@ import './App.scss';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
 
-export function App() {
+function App() {
     return (
         <div className="App">
             <header id="header">
