@@ -1,3 +1,10 @@
+# dependencies
+node_modules
+.DS_Store
+.vscode
+/.pnp
+.pnp.js
+
 # Logs
 logs
 *.log
