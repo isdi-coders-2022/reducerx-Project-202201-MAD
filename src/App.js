@@ -1,13 +1,11 @@
 import './App.scss';
 import { Footer } from './components/footer/footer';
-import { Header } from './components/header';
+import { Header } from './components/header/header';
 
 function App() {
     return (
         <div className="App">
-            <header id="header">
-                <Header />
-            </header>
+            <Header />
             <Footer />
         </div>
     );
