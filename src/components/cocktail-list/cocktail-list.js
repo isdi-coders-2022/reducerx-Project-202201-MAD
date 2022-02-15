@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext } from 'react';
 import { Context } from '../../context/context';
+import './cocktail-list.scss';
 
 export function CocktailList() {
     const { store } = useContext(Context);
