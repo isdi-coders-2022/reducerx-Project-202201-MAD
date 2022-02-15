@@ -11,7 +11,7 @@ describe('Given API functions', () => {
         test('data is fetched', async () => {
             expect(await getAll()).toEqual({ data: 'Mocked result' });
             expect(axios.get).toHaveBeenCalledWith(
-                'www.thecocktaildb.com/api/json/v2/9973533/filter.php?c=Cocktail'
+                'https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?c=Cocktail'
             );
         });
     });
