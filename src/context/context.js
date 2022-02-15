@@ -5,24 +5,30 @@ import * as actions from '../reducers/action-creator';
 
 const { createContext, useEffect, useReducer } = require('react');
 
-const Context = createContext({
-    cocktails: [],
+export const Context = createContext({
+    store: {
+        cocktails: [],
+        favorites: [],
+        userInfo: {},
+    },
     addCocktail: () => {},
     deleteCocktail: () => {},
 });
 
 export function ContextProvider({ children }) {
-    const [cocktails, dispatch] = useReducer(CocktailsReducer, []);
+    const [store, dispatch] = useReducer(CocktailsReducer, []);
 
     useEffect(() => {
-        api.getAll().then((resp) => dispatch(actions.loadCocktails(resp.data)));
-    }, []);
-
-    useEffect(() => {
-        api.getAllFav().then((resp) =>
-            dispatch(actions.loadCocktails(resp.data))
+        api.getAll().then((resp) =>
+            dispatch(actions.loadCocktails(resp.data.drinks))
         );
     }, []);
+
+    // useEffect(() => {
+    //     api.getAllFav().then((resp) =>
+    //         dispatch(actions.loadCocktails(resp.data))
+    //     );
+    // }, []);
 
     // const addCocktail = (newCocktail) => {
     //     api.setFav(newCocktail).then((resp) => {
@@ -30,7 +36,7 @@ export function ContextProvider({ children }) {
     //     });
     // };
 
-    // const isFav = (id) => {};
+    // // const isFav = (id) => {};
 
     // const deleteCocktail = (cocktail) => {
     //     api.removeFav(cocktail.id).then((resp) => {
@@ -41,8 +47,7 @@ export function ContextProvider({ children }) {
     // };
 
     const contextValue = {
-        cocktails,
-
+        store,
         // addCocktail,
         // deleteCocktail,
     };

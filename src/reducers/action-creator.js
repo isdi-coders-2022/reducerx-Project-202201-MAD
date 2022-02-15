@@ -2,7 +2,7 @@ import { cocktailActionTypes } from './action-type';
 
 export const loadCocktails = (cocktails) => ({
     type: cocktailActionTypes.load,
-    cocktails,
+    payload: cocktails,
 });
 
 export const addCocktail = (cocktail) => ({
