@@ -7,14 +7,12 @@ const { createContext, useEffect, useReducer } = require('react');
 
 const Context = createContext({
     cocktails: [],
-    cocktailsFav: [],
     addCocktail: () => {},
     deleteCocktail: () => {},
 });
 
 export function ContextProvider({ children }) {
     const [cocktails, dispatch] = useReducer(CocktailsReducer, []);
-    const [cocktailsFav, dispatchFav] = useReducer(CocktailsReducer, []);
 
     useEffect(() => {
         api.getAll().then((resp) => dispatch(actions.loadCocktails(resp.data)));
@@ -22,13 +20,13 @@ export function ContextProvider({ children }) {
 
     useEffect(() => {
         api.getAllFav().then((resp) =>
-            dispatchFav(actions.loadCocktails(resp.data))
+            dispatch(actions.loadCocktails(resp.data))
         );
     }, []);
 
     // const addCocktail = (newCocktail) => {
     //     api.setFav(newCocktail).then((resp) => {
-    //         dispatchFav(actions.addCocktail(resp.data));
+    //         dispatch(actions.addCocktail(resp.data));
     //     });
     // };
 
@@ -37,14 +35,14 @@ export function ContextProvider({ children }) {
     // const deleteCocktail = (cocktail) => {
     //     api.removeFav(cocktail.id).then((resp) => {
     //         if (resp.status === 200) {
-    //             dispatchFav(actions.removeCocktail(cocktail));
+    //             dispatch(actions.removeCocktail(cocktail));
     //         }
     //     });
     // };
 
     const contextValue = {
         cocktails,
-        cocktailsFav,
+
         // addCocktail,
         // deleteCocktail,
     };
