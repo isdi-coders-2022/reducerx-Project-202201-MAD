@@ -7,11 +7,7 @@ export function CocktailList() {
     return (
         <main>
             <p>The Cocktail List</p>
-            <ul className="cocktail-list">
-                {store.cocktails.map((item) => (
-                    <li>{item.idDrink}</li>
-                ))}
-            </ul>
+            <ul className="cocktail-list" />
         </main>
     );
 }
