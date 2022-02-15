@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { getAll } from '../services/api';
-import { Context } from './context';
 
 jest.mock('axios');
 
