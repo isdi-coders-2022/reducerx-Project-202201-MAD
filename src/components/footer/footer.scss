@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    width: 100vw;
+    background-color: #282828;
+
+    p {
+        color: white;
+    }
+
+    .footer-image {
+        height: 5rem;
+        width: auto;
+    }
+
+    .go-top-item {
+        text-decoration: none;
+
+        p {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+// ++++ Media Query for Desktop ++++
+@media (min-width: 600px) {
+    .go-top-item {
+        display: none;
+    }
+}
