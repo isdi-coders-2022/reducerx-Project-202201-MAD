@@ -4,6 +4,8 @@ export function CocktailsReducer(state, action) {
     switch (action.type) {
         case cocktailActionTypes.load:
             return { ...state, cocktails: [...action.payload] };
+        case cocktailActionTypes.loadFav:
+            return { ...state, favorites: [...action.payload] };
         case cocktailActionTypes.add:
             return [...state, action.cocktails];
         case cocktailActionTypes.toggle:

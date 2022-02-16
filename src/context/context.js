@@ -23,11 +23,11 @@ export function ContextProvider({ children }) {
             .catch((error) => console.log(error));
     }, []);
 
-    // useEffect(() => {
-    //     api.getAllFav().then((resp) =>
-    //         dispatch(actions.loadCocktails(resp.data))
-    //     );
-    // }, []);
+    useEffect(() => {
+        api.getAllFav()
+            .then((resp) => dispatch(actions.loadCocktailsFav(resp.data)))
+            .catch((error) => console.log(error));
+    }, []);
 
     // const addCocktail = (newCocktail) => {
     //     api.setFav(newCocktail).then((resp) => {

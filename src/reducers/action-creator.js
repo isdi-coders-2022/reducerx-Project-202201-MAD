@@ -5,6 +5,11 @@ export const loadCocktails = (cocktails) => ({
     payload: cocktails,
 });
 
+export const loadCocktailsFav = (favorites) => ({
+    type: cocktailActionTypes.loadFav,
+    payload: favorites,
+});
+
 export const addCocktail = (cocktail) => ({
     type: cocktailActionTypes.add,
     cocktail,

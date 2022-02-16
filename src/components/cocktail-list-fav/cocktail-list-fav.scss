@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    width: 100vw;
+    background-color: #282828;
+
+    h3 {
+        color: white;
+    }
+    .cocktail-list-fav {
+        display: flex;
+        flex-direction: column;
+
+        img {
+            border-radius: 12.7%;
+            width: 40vw;
+            border: 1px solid #6f6b6b;
+        }
+
+        img:hover {
+            opacity: 1;
+            transition: all ease-in-out 0.3s;
+        }
+
+        p {
+            color: white;
+        }
+    }
+}
