@@ -8,6 +8,7 @@ export const Context = createContext({
     store: {
         cocktails: [],
         favorites: [],
+        cocktail: [],
     },
     addCocktail: () => {},
     deleteCocktail: () => {},
