@@ -17,8 +17,18 @@ export function CocktailList() {
                                 key={item.idDrink}
                                 className="cocktail-list__name"
                             >
-                                <img src={item.strDrinkThumb} alt="Cocktail" />
-                                <p> {item.strDrink}</p>
+                                <div>
+                                    <img
+                                        src={item.strDrinkThumb}
+                                        alt="Cocktail"
+                                    />
+                                    <p className="cocktail-title__mobile">
+                                        {item.strDrink}
+                                    </p>
+                                </div>
+                                <p className="cocktail-title__desktop">
+                                    {item.strDrink}
+                                </p>
                             </li>
                         ))}
                     </ul>
