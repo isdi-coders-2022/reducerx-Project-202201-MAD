@@ -22,6 +22,20 @@ export function CocktailList() {
                             </li>
                         ))}
                     </ul>
+                    <div className="cocktails-navigation">
+                        <button
+                            type="button"
+                            className="cocktails-navigation__previous"
+                        >
+                            Previous
+                        </button>
+                        <button
+                            type="button"
+                            className="cocktails-navigation__next"
+                        >
+                            Next
+                        </button>
+                    </div>
                 </main>
             ) : (
                 <p>Loading</p>

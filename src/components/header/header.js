@@ -17,8 +17,8 @@ export function Header() {
                 />
                 <nav className="desktop-nav">
                     <ul className="desktop-nav__menu">
-                        <li>Favorites</li>
                         <li>Home</li>
+                        <li>Favourites</li>
                     </ul>
                 </nav>
             </div>
