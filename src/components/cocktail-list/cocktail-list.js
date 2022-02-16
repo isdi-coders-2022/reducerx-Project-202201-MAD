@@ -11,7 +11,6 @@ export function CocktailList() {
         <div>
             {store.cocktails ? (
                 <main>
-                    <h3>The Cocktail List</h3>
                     <ul className="cocktail-list">
                         {store.cocktails.map((item) => (
                             <li
@@ -19,15 +18,37 @@ export function CocktailList() {
                                 className="cocktail-list__name"
                             >
                                 <Link to={`/details?id=${item.idDrink}`}>
-                                    <img
-                                        src={item.strDrinkThumb}
-                                        alt="Cocktail"
-                                    />
-                                    <p> {item.strDrink}</p>
+                                    <div>
+                                        <img
+                                            src={item.strDrinkThumb}
+                                            alt="Cocktail"
+                                        />
+
+                                        <p className="cocktail-title__mobile">
+                                            {item.strDrink}
+                                        </p>
+                                    </div>
+                                    <p className="cocktail-title__desktop">
+                                        {item.strDrink}
+                                    </p>
                                 </Link>
                             </li>
                         ))}
                     </ul>
+                    <div className="cocktails-navigation">
+                        <button
+                            type="button"
+                            className="cocktails-navigation__previous"
+                        >
+                            Previous
+                        </button>
+                        <button
+                            type="button"
+                            className="cocktails-navigation__next"
+                        >
+                            Next
+                        </button>
+                    </div>
                 </main>
             ) : (
                 <p>Loading</p>

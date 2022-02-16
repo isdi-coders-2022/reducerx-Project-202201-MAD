@@ -1,3 +1,11 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+}
+
 .header {
     background-color: #282828;
 
@@ -7,7 +15,6 @@
     .header-images {
         display: flex;
         align-items: center;
-
         justify-content: space-between;
         position: relative;
         top: -3rem;
@@ -47,17 +54,29 @@
 
 @media (min-width: 600px) {
     .header {
+        height: 4rem;
+
         .desktop-nav {
             display: flex;
             align-items: center;
             justify-content: center;
-            .desktop-nav-menu {
-                display: flex;
-                justify-content: space-around;
+            .desktop-nav__menu {
+                font-size: 20px;
+                font-weight: bolder;
 
                 & > li {
                     padding-right: 20px;
                 }
+            }
+            .desktop-home:hover {
+                color: #f36183;
+                cursor: pointer;
+                transform: translateY(1px);
+            }
+            .desktop-favourites:hover {
+                color: #f36183;
+                cursor: pointer;
+                transform: translateY(1px);
             }
         }
 
