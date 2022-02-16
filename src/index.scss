@@ -1,7 +1,16 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     scroll-behavior: smooth;
     margin: 0;
     font-family: 'Overpass', sans-serif;
+    height: 100%;
 }
 
 code {
