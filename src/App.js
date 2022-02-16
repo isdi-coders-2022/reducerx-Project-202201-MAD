@@ -1,4 +1,3 @@
-import './App.scss';
 import { Routes, Route } from 'react-router-dom';
 import { CocktailList } from './components/cocktail-list/cocktail-list';
 import { Footer } from './components/footer/footer';
