@@ -20,3 +20,6 @@ export function update(cocktail) {
 export function removeFav(id) {
     return axios.delete(FAV_COCKTAILS + id);
 }
+export function getDetails(url) {
+    return axios.get(url);
+}
