@@ -13,7 +13,10 @@ export function CocktailList() {
                     <h3>The Cocktail List</h3>
                     <ul className="cocktail-list">
                         {store.cocktails.map((item) => (
-                            <li className="cocktail-list__name">
+                            <li
+                                key={item.idDrink}
+                                className="cocktail-list__name"
+                            >
                                 <img src={item.strDrinkThumb} alt="Cocktail" />
                                 <p> {item.strDrink}</p>
                             </li>
