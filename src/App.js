@@ -1,15 +1,22 @@
 import './App.scss';
+import { Routes, Route } from 'react-router-dom';
 import { CocktailList } from './components/cocktail-list/cocktail-list';
-
 import { Footer } from './components/footer/footer';
 import { Header } from './components/header/header';
 
 function App() {
+    const menuOptions = [
+        { path: '/home', label: 'Home' },
+        { path: '/favorites', label: 'Favorites' },
+    ];
+
     return (
         <div className="App">
-            <Header />
-
-            <CocktailList />
+            <Header menuOptions={menuOptions} />
+            <Routes>
+                <Route path="/" element={<CocktailList />} />
+                <Route path="/home" element={<CocktailList />} />
+            </Routes>
 
             <Footer />
         </div>
