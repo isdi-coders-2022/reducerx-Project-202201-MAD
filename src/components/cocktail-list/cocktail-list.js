@@ -10,7 +10,6 @@ export function CocktailList() {
         <div>
             {store.cocktails ? (
                 <main>
-                    <h3>The Cocktail List</h3>
                     <ul className="cocktail-list">
                         {store.cocktails.map((item) => (
                             <li
