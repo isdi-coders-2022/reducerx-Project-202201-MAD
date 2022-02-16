@@ -7,41 +7,31 @@ export function CocktailListFav() {
     const { store } = useContext(Context);
 
     return (
-        <div>
+        <div className="favorites-wrapper">
             {store.favorites ? (
-                <main>
-                    <h3>My Cocktails</h3>
-                    <ul className="cocktail-list">
+                <main className="favorites-wrapper__main">
+                    <h3 className="favorites-title">My Cocktails</h3>
+                    <ul className="cocktail-list-fav">
                         {store.favorites.map((item) => (
                             <li
                                 key={item.idDrink}
-                                className="cocktail-list__name"
+                                className="cocktail-list-fav__name"
                             >
-                                <div>
-                                    <img
-                                        src={item.strDrinkThumb}
-                                        alt="Cocktail"
-                                    />
-                                    <p className="cocktail-title__mobile">
-                                        {item.strDrink}
-                                    </p>
-                                </div>
-                                <p className="cocktail-title__desktop">
-                                    {item.strDrink}
-                                </p>
+                                <img src={item.strDrinkThumb} alt="Cocktail" />
+                                <p>{item.strDrink}</p>
                             </li>
                         ))}
                     </ul>
-                    <div className="cocktails-navigation">
+                    <div className="cocktails-navigation-fav">
                         <button
                             type="button"
-                            className="cocktails-navigation__previous"
+                            className="cocktails-navigation-fav__previous"
                         >
                             Previous
                         </button>
                         <button
                             type="button"
-                            className="cocktails-navigation__next"
+                            className="cocktails-navigation-fav__next"
                         >
                             Next
                         </button>
