@@ -10,15 +10,13 @@ export function CocktailList() {
         <div>
             {store.cocktails ? (
                 <main>
-                    <p>The Cocktail List</p>
+                    <h3>The Cocktail List</h3>
                     <ul className="cocktail-list">
                         {store.cocktails.map((item) => (
-                            <>
+                            <li className="cocktail-list__name">
                                 <img src={item.strDrinkThumb} alt="Cocktail" />
-                                <li className="cocktail-list__name">
-                                    {item.strDrink}
-                                </li>
-                            </>
+                                <p> {item.strDrink}</p>
+                            </li>
                         ))}
                     </ul>
                 </main>
