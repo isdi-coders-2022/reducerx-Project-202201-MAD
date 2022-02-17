@@ -8,7 +8,10 @@ export function CocktailList() {
     const { store } = useContext(Context);
     const [indexMarker, setindexMarker] = useState(0);
 
-    function handleOnClick(index) {}
+    function handleOnClick(index) {
+        if (indexMarker === 8) {
+        }
+    }
 
     return (
         <div>
