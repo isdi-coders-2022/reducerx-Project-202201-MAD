@@ -27,19 +27,21 @@
         }
 
         .header-menu-icon {
+            color: #c5b8b8;
             height: 3rem;
             width: 3rem;
             margin-right: 2rem;
             //En desktop, display none
             // justify-content: flex-end;
         }
+        .menuitem {
+            cursor: none;
+            padding-top: 1.5rem;
+            margin-left: -4.5rem;
+        }
         .menu__item-link {
             color: white;
-        }
-        .bm-menu-wrap {
-            background-color: #885964;
-            opacity: 60%;
-            height: 50%;
+            font-size: 1.5rem;
         }
     }
     .desktop-nav {
@@ -54,16 +56,6 @@
 
             .menu__item-link {
                 color: white;
-            }
-            .menu__item-link:hover {
-                color: #f36183;
-                cursor: pointer;
-                transform: translateY(1px);
-            }
-            .menu__item-link:hover {
-                color: #f36183;
-                cursor: pointer;
-                transform: translateY(1px);
             }
         }
     }
