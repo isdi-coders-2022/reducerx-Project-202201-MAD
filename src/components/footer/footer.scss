@@ -1,5 +1,5 @@
 footer {
-    padding-top: 24px;
+    padding-top: 2rem;
     width: 100vw;
     color: white;
 
@@ -22,7 +22,9 @@ footer {
 
 // ++++ Media Query for Desktop ++++
 @media (min-width: 600px) {
-    .go-top-item {
-        display: none;
+    footer {
+        .go-top-item {
+            display: none;
+        }
     }
 }
