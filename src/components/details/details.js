@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import * as api from '../../services/api';
+import './details-style.scss';
 
 export function Details() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const cocktailId = urlParams.get('id');
     const detailsURL = `https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${cocktailId}`;
-
+    const ingredients = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+    const newState = [];
     const [state, setState] = useState({});
 
     useEffect(() => {
@@ -19,5 +21,41 @@ export function Details() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return <div>{state ? <p>{state.idDrink}</p> : <p>Loading</p>}</div>;
+    // state.forEach((element) => {
+    //     if (element !== null) {
+    //         newState.push(element);
+    //     }
+    // });
+    // function bouncer(arr) {
+    //     return arr.filter(Boolean);
+    // }
+    // bouncer(state);
+    // console.log(state);
+    return (
+        <div>
+            {state ? (
+                <div className="cocktail-detail">
+                    <img
+                        className="cocktail-detail__title__image"
+                        src={state.strDrinkThumb}
+                        alt="Cocktail glass"
+                    />
+
+                    <h4 className="cocktail-detail__title__name">
+                        {state.strDrink}
+                    </h4>
+                    <div className="cocktail-detail__instructions">
+                        <h3 className="cocktail-detail__instructions__title">
+                            Instructions
+                        </h3>
+                        <p className="cocktail-detail__instructions__description">
+                            {state.strInstructions}
+                        </p>
+                    </div>
+                </div>
+            ) : (
+                <p>Loading</p>
+            )}
+        </div>
+    );
 }
