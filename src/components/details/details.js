@@ -4,12 +4,11 @@ import { FavoritesIcon } from '../favorites-icon/favorites-icon';
 import './details-style.scss';
 
 export function Details() {
+    const [state, setState] = useState({});
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const cocktailId = urlParams.get('id');
     const detailsURL = `https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${cocktailId}`;
-
-    const [state, setState] = useState({});
 
     useEffect(() => {
         api.getDetails(detailsURL)
