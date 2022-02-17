@@ -10,9 +10,9 @@ export const loadCocktailsFav = (favorites) => ({
     payload: favorites,
 });
 
-export const addCocktail = (cocktail) => ({
+export const addCocktail = (favorites) => ({
     type: cocktailActionTypes.add,
-    cocktail,
+    favorites,
 });
 
 export const toggleCocktail = (cocktail) => ({
