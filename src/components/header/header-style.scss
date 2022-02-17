@@ -27,11 +27,21 @@
         }
 
         .header-menu-icon {
+            color: #c5b8b8;
             height: 3rem;
             width: 3rem;
             margin-right: 2rem;
             //En desktop, display none
             // justify-content: flex-end;
+        }
+        .menuitem {
+            cursor: none;
+            padding-top: 1.5rem;
+            margin-left: -4.5rem;
+        }
+        .menu__item-link {
+            color: white;
+            font-size: 1.5rem;
         }
     }
     .desktop-nav {
@@ -39,13 +49,12 @@
 
         .desktop-nav__menu {
             list-style-type: none;
-
             display: flex;
             justify-content: space-evenly;
             gap: 7rem;
             margin-right: 4rem;
 
-            & > li {
+            .menu__item-link {
                 color: white;
             }
         }

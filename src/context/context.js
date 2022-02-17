@@ -30,11 +30,11 @@ export function ContextProvider({ children }) {
             .catch((error) => console.log(error));
     }, []);
 
-    // const addCocktail = (newCocktail) => {
-    //     api.setFav(newCocktail).then((resp) => {
-    //         dispatch(actions.addCocktail(resp.data));
-    //     });
-    // };
+    const addCocktail = (newCocktail) => {
+        api.setFav(newCocktail).then((resp) => {
+            dispatch(actions.addCocktail(resp.data));
+        });
+    };
 
     // // const isFav = (id) => {};
     const updateCocktail = (cocktail) => {
@@ -43,18 +43,18 @@ export function ContextProvider({ children }) {
         });
     };
 
-    // const deleteCocktail = (cocktail) => {
-    //     api.removeFav(cocktail.id).then((resp) => {
-    //         if (resp.status === 200) {
-    //             dispatch(actions.removeCocktail(cocktail));
-    //         }
-    //     });
-    // };
+    const deleteCocktail = (cocktail) => {
+        api.removeFav(cocktail.id).then((resp) => {
+            if (resp.status === 200) {
+                dispatch(actions.removeCocktail(cocktail));
+            }
+        });
+    };
 
     const contextValue = {
         store,
-        // addCocktail,
-        // deleteCocktail,
+        addCocktail,
+        deleteCocktail,
         updateCocktail,
     };
     return <Context.Provider value={contextValue}>{children}</Context.Provider>;
