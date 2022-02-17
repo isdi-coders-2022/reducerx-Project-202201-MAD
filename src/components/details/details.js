@@ -7,8 +7,7 @@ export function Details() {
     const urlParams = new URLSearchParams(queryString);
     const cocktailId = urlParams.get('id');
     const detailsURL = `https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${cocktailId}`;
-    const ingredients = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-    const newState = [];
+
     const [state, setState] = useState({});
 
     useEffect(() => {
