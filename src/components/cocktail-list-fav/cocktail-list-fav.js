@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { Context } from '../../context/context';
+import { FavoritesIcon } from '../favorites-icon/favorites-icon';
 import './cocktail-list-fav.scss';
 
 export function CocktailListFav() {
@@ -17,8 +19,14 @@ export function CocktailListFav() {
                                 key={item.idDrink}
                                 className="cocktail-list-fav__name"
                             >
-                                <img src={item.strDrinkThumb} alt="Cocktail" />
-                                <p>{item.strDrink}</p>
+                                <FavoritesIcon cocktailId={item.idDrink} />
+                                <Link to={`/details?id=${item.idDrink}`}>
+                                    <img
+                                        src={item.strDrinkThumb}
+                                        alt="Cocktail"
+                                    />
+                                    <p>{item.strDrink}</p>
+                                </Link>
                             </li>
                         ))}
                     </ul>

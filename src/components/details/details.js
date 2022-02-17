@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as api from '../../services/api';
+import { FavoritesIcon } from '../favorites-icon/favorites-icon';
 import './details-style.scss';
 
 export function Details() {
@@ -12,7 +13,7 @@ export function Details() {
     useEffect(() => {
         api.getDetails(detailsURL)
             .then((resp) => {
-                console.log(resp);
+                // console.log(resp);
                 setState(resp.data.drinks[0]);
             })
             .catch((error) => console.log(error));
@@ -28,7 +29,9 @@ export function Details() {
     //     return arr.filter(Boolean);
     // }
     // bouncer(state);
-    // console.log(state);
+    const cocktailInfo = state;
+    console.log(cocktailInfo);
+
     return (
         <div>
             {state ? (
@@ -46,9 +49,14 @@ export function Details() {
                         <h3 className="cocktail-detail__instructions__title">
                             Instructions
                         </h3>
+
                         <p className="cocktail-detail__instructions__description">
                             {state.strInstructions}
                         </p>
+                        <FavoritesIcon
+                            cocktailId={state.idDrink}
+                            cocktail={cocktailInfo}
+                        />
                     </div>
                 </div>
             ) : (

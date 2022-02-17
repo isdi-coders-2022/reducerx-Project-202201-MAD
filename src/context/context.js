@@ -44,7 +44,7 @@ export function ContextProvider({ children }) {
     };
 
     const deleteCocktail = (cocktail) => {
-        api.removeFav(cocktail.id).then((resp) => {
+        api.removeFav(cocktail).then((resp) => {
             if (resp.status === 200) {
                 dispatch(actions.removeCocktail(cocktail));
             }
