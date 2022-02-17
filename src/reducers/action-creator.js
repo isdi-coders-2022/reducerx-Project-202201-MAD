@@ -20,7 +20,7 @@ export const toggleCocktail = (cocktail) => ({
     cocktail,
 });
 
-export const removeCocktail = (cocktail) => ({
+export const removeCocktail = (favorites) => ({
     type: cocktailActionTypes.remove,
-    cocktail,
+    payload: favorites,
 });

@@ -43,18 +43,18 @@ export function ContextProvider({ children }) {
         });
     };
 
-    // const deleteCocktail = (cocktail) => {
-    //     api.removeFav(cocktail.id).then((resp) => {
-    //         if (resp.status === 200) {
-    //             dispatch(actions.removeCocktail(cocktail));
-    //         }
-    //     });
-    // };
+    const deleteCocktail = (cocktail) => {
+        api.removeFav(cocktail).then((resp) => {
+            if (resp.status === 200) {
+                dispatch(actions.removeCocktail(cocktail));
+            }
+        });
+    };
 
     const contextValue = {
         store,
         // addCocktail,
-        // deleteCocktail,
+        deleteCocktail,
         updateCocktail,
     };
     return <Context.Provider value={contextValue}>{children}</Context.Provider>;

@@ -1,6 +1,7 @@
 {
     "favorites": [
         {
+            "id": "11007",
             "idDrink": "11007",
             "strDrink": "Margarita",
             "strDrinkAlternate": null,
@@ -54,6 +55,7 @@
             "dateModified": "2015-08-18 14:42:59"
         },
         {
+            "id": "11008",
             "idDrink": "11008",
             "strDrink": "Manhattan",
             "strDrinkAlternate": null,
@@ -107,6 +109,7 @@
             "dateModified": "2017-09-02 12:07:09"
         },
         {
+            "id": "14029",
             "idDrink": "14029",
             "strDrink": "57 Chevy with a White License Plate",
             "strDrinkAlternate": null,

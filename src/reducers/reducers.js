@@ -11,7 +11,12 @@ export function CocktailsReducer(state, action) {
         case cocktailActionTypes.toggle:
             return state.some((item) => item.id === action.cocktail.id);
         case cocktailActionTypes.remove:
-            return state.filter((item) => item.id !== action.cocktail.id);
+            return {
+                ...state,
+                favorites: state.favorites.filter(
+                    (item) => item.id !== action.payload
+                ),
+            };
         default:
             return state;
     }

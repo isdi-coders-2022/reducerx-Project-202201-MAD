@@ -2,6 +2,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/context';
+import { FavoritesIcon } from '../favorites-icon/favorites-icon';
 import './cocktail-list.scss';
 
 export function CocktailList() {
@@ -17,6 +18,7 @@ export function CocktailList() {
                                 key={item.idDrink}
                                 className="cocktail-list__name"
                             >
+                                <FavoritesIcon cocktailId={item.idDrink} />
                                 <Link to={`/details?id=${item.idDrink}`}>
                                     <div>
                                         <img
