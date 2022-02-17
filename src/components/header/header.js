@@ -3,7 +3,7 @@ import { Menu } from './menu';
 
 export function Header({ menuOptions }) {
     return (
-        <header className="header">
+        <header className="header" id="headerID">
             <h1 className="header-h1">Cocktails!</h1>
             <div className="header-images">
                 <img
