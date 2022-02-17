@@ -2,7 +2,6 @@
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/context';
-import { FavoritesIcon } from '../favorites-icon/favorites-icon';
 import './cocktail-list.scss';
 
 export function CocktailList() {
