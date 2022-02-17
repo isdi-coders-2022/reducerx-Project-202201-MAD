@@ -33,6 +33,14 @@
             //En desktop, display none
             // justify-content: flex-end;
         }
+        .menu__item-link {
+            color: white;
+        }
+        .bm-menu-wrap {
+            background-color: #885964;
+            opacity: 60%;
+            height: 50%;
+        }
     }
     .desktop-nav {
         display: none;

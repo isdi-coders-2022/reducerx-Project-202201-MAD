@@ -90,9 +90,9 @@ main {
         }
         &__name img:hover {
             cursor: pointer;
-            transition: 0.5s;
-            opacity: 70%;
-            transform: scale(1.02);
+            transform: scale(0.9);
+            border-radius: 50%;
+            transition: all ease-in-out 0.3s;
         }
         &__name img:active {
             cursor: pointer;
