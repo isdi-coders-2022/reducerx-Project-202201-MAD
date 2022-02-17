@@ -7,7 +7,10 @@ export function CocktailsReducer(state, action) {
         case cocktailActionTypes.loadFav:
             return { ...state, favorites: [...action.payload] };
         case cocktailActionTypes.add:
-            return { ...state, favorites: [...action.payload] };
+            return {
+                ...state,
+                favorites: [...state.favorites, action.payload],
+            };
         case cocktailActionTypes.toggle:
             return state.some((item) => item.id === action.cocktail.id);
         case cocktailActionTypes.remove:

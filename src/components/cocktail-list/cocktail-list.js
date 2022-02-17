@@ -18,7 +18,6 @@ export function CocktailList() {
                                 key={item.idDrink}
                                 className="cocktail-list__name"
                             >
-                                <FavoritesIcon cocktailId={item.idDrink} />
                                 <Link to={`/details?id=${item.idDrink}`}>
                                     <div>
                                         <img

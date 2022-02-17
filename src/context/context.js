@@ -30,11 +30,11 @@ export function ContextProvider({ children }) {
             .catch((error) => console.log(error));
     }, []);
 
-    // const addCocktail = (newCocktail) => {
-    //     api.setFav(newCocktail).then((resp) => {
-    //         dispatch(actions.addCocktail(resp.data));
-    //     });
-    // };
+    const addCocktail = (newCocktail) => {
+        api.setFav(newCocktail).then((resp) => {
+            dispatch(actions.addCocktail(resp.data));
+        });
+    };
 
     // // const isFav = (id) => {};
     const updateCocktail = (cocktail) => {
@@ -53,7 +53,7 @@ export function ContextProvider({ children }) {
 
     const contextValue = {
         store,
-        // addCocktail,
+        addCocktail,
         deleteCocktail,
         updateCocktail,
     };
