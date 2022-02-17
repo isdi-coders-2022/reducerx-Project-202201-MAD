@@ -1,5 +1,6 @@
 import './header-style.scss';
 import { Menu } from './menu';
+import { LoginButton } from '../auth0/LoginButton';
 
 export function Header({ menuOptions }) {
     return (
@@ -16,6 +17,7 @@ export function Header({ menuOptions }) {
                     src="/assets/menu.png"
                     alt="Hamburgesa de menu"
                 />
+                <LoginButton />
                 {/* <nav className="desktop-nav">
                     <ul className="desktop-nav__menu">
                         <li className="desktop-home">Home</li>
