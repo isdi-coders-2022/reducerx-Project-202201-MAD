@@ -53,20 +53,20 @@ export function CocktailList() {
                     <div className="cocktails-navigation">
                         {indexMarker > 7 && (
                             <button
+                                className="cocktails-navigation__previous"
                                 onClick={handleOnClickPrev}
                                 value="prev"
                                 type="button"
-                                className="cocktails-navigation__previous"
                             >
                                 Previous
                             </button>
                         )}
                         {indexMarker < store.cocktails.length - 9 && (
                             <button
+                                className="cocktails-navigation__next"
                                 onClick={handleOnClickNext}
                                 value="next"
                                 type="button"
-                                className="cocktails-navigation__next"
                             >
                                 Next
                             </button>

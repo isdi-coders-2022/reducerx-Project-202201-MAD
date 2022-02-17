@@ -33,9 +33,27 @@ main {
         display: none;
     }
 }
-
 .cocktails-navigation {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    padding: 1rem;
+    padding-bottom: 3rem;
+    & button {
+        padding: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: #f45a7f;
+        border: 0.1rem solid #ffffff;
+        border-radius: 1rem;
+    }
+    &__next,
+    &__previous {
+        font-size: 0.8rem;
+        font-weight: medium;
+        color: white;
+    }
 }
 
 @media (min-width: 600px) {
@@ -93,7 +111,7 @@ main {
             padding-top: 1.5rem;
             padding-bottom: 1.5rem;
             background-color: #f45a7f;
-            border: 0.2rem solid #282828;
+            border: 0.12rem solid #ffffff;
             border-radius: 1rem;
         }
         & button:hover {
@@ -107,7 +125,8 @@ main {
         &__next,
         &__previous {
             font-size: 1rem;
-            font-weight: bolder;
+            font-weight: medium;
+            color: white;
         }
     }
     .cocktail-title__mobile {

@@ -39,14 +39,23 @@
 
         .desktop-nav__menu {
             list-style-type: none;
-
             display: flex;
             justify-content: space-evenly;
             gap: 7rem;
             margin-right: 4rem;
 
-            & > li {
+            .menu__item-link {
                 color: white;
+            }
+            .menu__item-link:hover {
+                color: #f36183;
+                cursor: pointer;
+                transform: translateY(1px);
+            }
+            .menu__item-link:hover {
+                color: #f36183;
+                cursor: pointer;
+                transform: translateY(1px);
             }
         }
     }
