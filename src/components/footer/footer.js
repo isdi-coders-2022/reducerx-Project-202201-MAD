@@ -9,9 +9,9 @@ export function Footer() {
                 className="footer-image"
             />
             <a href="#header" className="go-top-item">
-                <p>Back to top ⬆️</p>
+                <p>Back to top &#x21e7;</p>
             </a>
-            <address>
+            <address className="footer-sign">
                 <p>Shaked and mixed by ReducerX with love ❤️</p>
             </address>
         </footer>

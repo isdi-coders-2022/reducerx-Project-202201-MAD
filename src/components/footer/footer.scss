@@ -1,16 +1,7 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 footer {
+    padding-top: 24px;
     width: 100vw;
-    background-color: #282828;
-
-    p {
-        color: white;
-    }
+    color: white;
 
     .footer-image {
         height: 5rem;
@@ -19,7 +10,10 @@ footer {
 
     .go-top-item {
         text-decoration: none;
+        color: #f45a7f;
+    }
 
+    .footer-sign {
         p {
             margin-bottom: 10px;
         }

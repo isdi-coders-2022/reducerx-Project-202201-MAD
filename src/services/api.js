@@ -3,7 +3,7 @@ import axios from 'axios';
 const COCKTAILS_API =
     'https://www.thecocktaildb.com/api/json/v2/9973533/filter.php?c=Cocktail';
 
-const FAV_COCKTAILS = 'http://localhost:4500/drinks/';
+const FAV_COCKTAILS = 'http://localhost:4500/favorites/';
 
 export function getAll() {
     return axios.get(COCKTAILS_API);
