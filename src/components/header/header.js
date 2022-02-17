@@ -1,9 +1,12 @@
 import './header-style.scss';
 import { useState } from 'react';
-import { slide as MenuSlide } from 'react-burger-menu';
 import { Link } from 'react-router-dom';
 import { Fade as Hamburger } from 'hamburger-react';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Menu } from './menu';
+import { LoginButton } from '../auth0/LoginButton';
+import { LogoutButton } from '../auth0/LogOut';
+import { Profile } from '../auth0/UserInfo';
 
 export function Header({ menuOptions }) {
     const [isOpen, setOpen] = useState(false);
@@ -12,6 +15,7 @@ export function Header({ menuOptions }) {
     //     console.log(isOpen);
     //     setOpen(!isOpen);
     // };
+    const { isAuthenticated } = useAuth0();
 
     return (
         <header className="header" id="headerID">
@@ -63,6 +67,25 @@ export function Header({ menuOptions }) {
                         ))}
                 </div>
 
+                <img
+                    className="header-menu-icon"
+                    src="/assets/menu.png"
+                    alt="Hamburgesa de menu"
+                />
+                {isAuthenticated ? (
+                    <>
+                        <LogoutButton /> <Profile />
+                    </>
+                ) : (
+                    <LoginButton />
+                )}
+
+                {/* <nav className="desktop-nav">
+                    <ul className="desktop-nav__menu">
+                        <li className="desktop-home">Home</li>
+                        <li className="desktop-favourites">Favourites</li>
+                    </ul>
+                </nav> */}
                 <Menu menuOptions={menuOptions} />
             </div>
         </header>
