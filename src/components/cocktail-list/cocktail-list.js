@@ -6,12 +6,15 @@ import './cocktail-list.scss';
 
 export function CocktailList() {
     const { store } = useContext(Context);
-    const [indexMarker, setindexMarker] = useState(0);
+    const [indexMarker, setIndexMarker] = useState(0);
 
-    // function handleOnClick(index) {
-    //     if (indexMarker === 8) {
-    //     }
-    // }
+    function handleOnClickNext() {
+        setIndexMarker(indexMarker + 8);
+    }
+
+    function handleOnClickPrev() {
+        setIndexMarker(indexMarker - 8);
+    }
 
     return (
         <div>
@@ -47,22 +50,27 @@ export function CocktailList() {
                                 )
                         )}
                     </ul>
-
                     <div className="cocktails-navigation">
-                        <button
-                            onClick=""
-                            type="button"
-                            className="cocktails-navigation__previous"
-                        >
-                            Previous
-                        </button>
-                        <button
-                            onClick=""
-                            type="button"
-                            className="cocktails-navigation__next"
-                        >
-                            Next
-                        </button>
+                        {indexMarker > 7 && (
+                            <button
+                                onClick={handleOnClickPrev}
+                                value="prev"
+                                type="button"
+                                className="cocktails-navigation__previous"
+                            >
+                                Previous
+                            </button>
+                        )}
+                        {indexMarker < store.cocktails.length - 9 && (
+                            <button
+                                onClick={handleOnClickNext}
+                                value="next"
+                                type="button"
+                                className="cocktails-navigation__next"
+                            >
+                                Next
+                            </button>
+                        )}
                     </div>
                 </main>
             ) : (
