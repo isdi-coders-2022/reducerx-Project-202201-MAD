@@ -1,6 +1,7 @@
 export const cocktailActionTypes = {
     load: '@cocktails/load',
-    add: '@cocktails/add',
+    loadFav: '@favorites/load',
+    add: '@favorites/add',
     toggle: '@cocktails/toggle',
     remove: '@cocktails/remove',
 };

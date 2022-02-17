@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import * as api from '../../services/api';
+import './details-style.scss';
 
 export function Details() {
     const queryString = window.location.search;
@@ -19,5 +20,41 @@ export function Details() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    return <div>{state ? <p>{state.idDrink}</p> : <p>Loading</p>}</div>;
+    // state.forEach((element) => {
+    //     if (element !== null) {
+    //         newState.push(element);
+    //     }
+    // });
+    // function bouncer(arr) {
+    //     return arr.filter(Boolean);
+    // }
+    // bouncer(state);
+    // console.log(state);
+    return (
+        <div>
+            {state ? (
+                <div className="cocktail-detail">
+                    <img
+                        className="cocktail-detail__title__image"
+                        src={state.strDrinkThumb}
+                        alt="Cocktail glass"
+                    />
+
+                    <h4 className="cocktail-detail__title__name">
+                        {state.strDrink}
+                    </h4>
+                    <div className="cocktail-detail__instructions">
+                        <h3 className="cocktail-detail__instructions__title">
+                            Instructions
+                        </h3>
+                        <p className="cocktail-detail__instructions__description">
+                            {state.strInstructions}
+                        </p>
+                    </div>
+                </div>
+            ) : (
+                <p>Loading</p>
+            )}
+        </div>
+    );
 }

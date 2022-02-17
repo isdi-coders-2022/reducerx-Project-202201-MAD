@@ -25,9 +25,9 @@ export function ContextProvider({ children }) {
     }, []);
 
     useEffect(() => {
-        api.getAllFav().then((resp) =>
-            dispatch(actions.loadCocktails(resp.data))
-        );
+        api.getAllFav()
+            .then((resp) => dispatch(actions.loadCocktailsFav(resp.data)))
+            .catch((error) => console.log(error));
     }, []);
 
     const addCocktail = (newCocktail) => {

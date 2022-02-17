@@ -8,10 +8,10 @@ export function CocktailList() {
     const { store } = useContext(Context);
     const [indexMarker, setindexMarker] = useState(0);
 
-    function handleOnClick(index) {
-        if (indexMarker === 8) {
-        }
-    }
+    // function handleOnClick(index) {
+    //     if (indexMarker === 8) {
+    //     }
+    // }
 
     return (
         <div>
@@ -50,14 +50,14 @@ export function CocktailList() {
 
                     <div className="cocktails-navigation">
                         <button
-                            onClick={handleOnClick}
+                            onClick=""
                             type="button"
                             className="cocktails-navigation__previous"
                         >
                             Previous
                         </button>
                         <button
-                            onClick={handleOnClick}
+                            onClick=""
                             type="button"
                             className="cocktails-navigation__next"
                         >
