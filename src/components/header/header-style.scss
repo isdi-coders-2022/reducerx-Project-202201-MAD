@@ -35,7 +35,6 @@
             // justify-content: flex-end;
         }
         .menuitem {
-            cursor: none;
             padding-top: 1.5rem;
             margin-left: -4.5rem;
         }
@@ -43,6 +42,26 @@
             color: white;
             font-size: 1.5rem;
         }
+    }
+    .button-login {
+        background-color: #f36183;
+        padding: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: #f45a7f;
+        border: 0.1rem solid #ffffff;
+        border-radius: 1rem;
+        color: white;
+    }
+    .button-logout {
+        background-color: #f36183;
+        padding: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        background-color: #f45a7f;
+        border: 0.1rem solid #ffffff;
+        border-radius: 1rem;
+        color: white;
     }
     .desktop-nav {
         display: none;
@@ -77,22 +96,52 @@
                     padding-right: 20px;
                 }
             }
-            .desktop-home:hover {
-                color: #f36183;
-                cursor: pointer;
-                transform: translateY(1px);
+            .header-img {
+                height: 13rem;
+                width: 13rem;
             }
-            .desktop-favourites:hover {
+
+            .menu__item-link:hover {
                 color: #f36183;
                 cursor: pointer;
                 transform: translateY(1px);
             }
         }
 
-        .header-images {
-            .header-menu-icon {
-                display: none;
-            }
+        .header-menu-icon {
+            display: none;
         }
+        .button-login {
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: medium;
+            color: white;
+        }
+        .button-login:hover {
+            transition: 0.5s;
+            opacity: 70%;
+            transform: scale(1.02);
+            box-shadow: 0 2px #9e3a52;
+            transform: translateY(4px);
+        }
+        // .button-logout {
+        //     display: flex;
+        //     align-content: left;
+        //     background-color: #f36183;
+        //     padding: 5rem;
+        //     padding-top: 5rem;
+        //     padding-bottom: 1rem;
+        //     background-color: #f45a7f;
+        //     border: 0.1rem solid #ffffff;
+        //     border-radius: 1rem;
+        //     color: white;
+        // }
+        // .button-logout:hover {
+        //     transition: 0.5s;
+        //     opacity: 70%;
+        //     transform: scale(1.02);
+        //     box-shadow: 0 2px #9e3a52;
+        //     transform: translateY(4px);
+        // }
     }
 }

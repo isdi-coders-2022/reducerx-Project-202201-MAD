@@ -9,8 +9,8 @@ describe('Given the component function Header', () => {
 
             expect(headerTestComponent).toBeDefined();
 
-            const textElemtent = screen.getByText(/Home/i);
-            expect(textElemtent).toBeInTheDocument();
+            const textElement = screen.getByText(/Home/i);
+            expect(textElement).toBeInTheDocument();
         });
     });
 });

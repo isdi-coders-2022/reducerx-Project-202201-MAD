@@ -12,14 +12,14 @@ export function FavoritesIcon({ cocktailId, cocktail }) {
                 if (element.id === cocktailId) return true;
             })
         ) {
-            console.log('está');
+            // console.log('está');
             deleteCocktail(cocktailId);
-            console.log('cocktail borrado');
+            // console.log('cocktail borrado');
         } else {
             const newCocktailInfo = { ...cocktail, id: cocktail.idDrink };
             console.log(newCocktailInfo);
             addCocktail(newCocktailInfo);
-            console.log('cocktail añadido');
+            // console.log('cocktail añadido');
         }
     }
     return (
