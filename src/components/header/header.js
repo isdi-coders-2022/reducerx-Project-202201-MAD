@@ -11,10 +11,6 @@ import { Profile } from '../auth0/UserInfo';
 export function Header({ menuOptions }) {
     const [isOpen, setOpen] = useState(false);
 
-    // const toggledBurger = () => {
-    //     console.log(isOpen);
-    //     setOpen(!isOpen);
-    // };
     const { isAuthenticated } = useAuth0();
 
     return (
@@ -31,29 +27,7 @@ export function Header({ menuOptions }) {
                         toggled={isOpen}
                         onToggle={() => setOpen(!isOpen)}
                     />
-                    {/* <img
-                        className="header-menu-icon"
-                        src="/assets/menu.png"
-                        alt="Hamburgesa de menu"
-                    /> */}
-                    {/* <MenuSlide
-                        right
-                        noOverlay
-                        width="200px"
-                        height="50%"
-                        onClick={toggleBurger}
-                    >
-                        {menuOptions.map((item) => (
-                            <li className="menuitem" key={item.path}>
-                                <Link
-                                    className="menu__item-link"
-                                    to={item.path}
-                                >
-                                    {item.label}
-                                </Link>
-                            </li>
-                        ))}
-                    </MenuSlide> */}
+
                     {isOpen &&
                         menuOptions.map((item) => (
                             <li className="menuitem" key={item.path}>
@@ -66,26 +40,16 @@ export function Header({ menuOptions }) {
                             </li>
                         ))}
                 </div>
+                <div>
+                    {isAuthenticated ? (
+                        <>
+                            <LogoutButton /> <Profile />
+                        </>
+                    ) : (
+                        <LoginButton />
+                    )}
+                </div>
 
-                <img
-                    className="header-menu-icon"
-                    src="/assets/menu.png"
-                    alt="Hamburgesa de menu"
-                />
-                {isAuthenticated ? (
-                    <>
-                        <LogoutButton /> <Profile />
-                    </>
-                ) : (
-                    <LoginButton />
-                )}
-
-                {/* <nav className="desktop-nav">
-                    <ul className="desktop-nav__menu">
-                        <li className="desktop-home">Home</li>
-                        <li className="desktop-favourites">Favourites</li>
-                    </ul>
-                </nav> */}
                 <Menu menuOptions={menuOptions} />
             </div>
         </header>

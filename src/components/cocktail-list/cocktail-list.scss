@@ -117,10 +117,11 @@ main {
         & button:hover {
             cursor: pointer;
             transition: 0.5s;
-            opacity: 70%;
             transform: scale(1.02);
-            box-shadow: 0 2px #9e3a52;
-            transform: translateY(4px);
+            transition: all ease-in-out 0.2s;
+            background-color: white;
+            color: #f45a7f;
+            border-color: white;
         }
         &__next,
         &__previous {
