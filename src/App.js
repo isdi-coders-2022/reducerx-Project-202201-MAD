@@ -7,10 +7,9 @@ import { Details } from './components/details/details';
 
 function App() {
     const menuOptions = [
-        { path: '/home', label: 'Home' },
+        { path: '/', label: 'Home' },
         { path: '/favorites', label: 'Favorites' },
     ];
-
     return (
         <div className="App">
             <Header menuOptions={menuOptions} />

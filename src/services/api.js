@@ -14,9 +14,9 @@ export function getAllFav() {
 export function setFav(cocktail) {
     return axios.post(FAV_COCKTAILS, cocktail);
 }
-export function update(cocktail) {
-    return axios.patch(COCKTAILS_API + cocktail.id, cocktail);
-}
+// export function update(cocktail) {
+//     return axios.patch(COCKTAILS_API + cocktail.id, cocktail);
+// }
 export function removeFav(id) {
     return axios.delete(FAV_COCKTAILS + id);
 }
