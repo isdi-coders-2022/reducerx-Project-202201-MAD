@@ -1,10 +1,9 @@
-import { screen, render, userEvent } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import { FavoritesIcon } from './favorites-icon';
 
 describe('Favorites-icon is rendered', () => {
+    render(<FavoritesIcon />);
     test('Favorites-icon renders', () => {
-        render(<FavoritesIcon />);
-
         const template = `<div role="button" onClick={isFav}>
             ⭐️
         </div>`;
@@ -13,5 +12,11 @@ describe('Favorites-icon is rendered', () => {
 
         const textElemtent = screen.getByText(/⭐️/i);
         expect(textElemtent).toBeInTheDocument();
+    });
+
+    test('Favorites-icon function', () => {
+        const isFav = jest.fn();
+        // const result = isFav();
+        expect(isFav).toHaveBeenCalledTimes(0);
     });
 });
