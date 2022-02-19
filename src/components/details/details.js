@@ -16,6 +16,7 @@ export function Details() {
                 setState(resp.data.drinks[0]);
             })
             .catch((error) => console.log(error));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const cocktailInfo = state;
