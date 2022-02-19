@@ -116,7 +116,6 @@ main {
         }
         & button:hover {
             cursor: pointer;
-            transition: 0.5s;
             transform: scale(1.02);
             transition: all ease-in-out 0.2s;
             background-color: white;

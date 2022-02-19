@@ -22,7 +22,7 @@ describe('Given API functions', () => {
         test('data is fetched', async () => {
             expect(await getAllFav()).toEqual({ data: 'Mocked result fav' });
             expect(axios.get).toHaveBeenCalledWith(
-                'http://localhost:4500/drinks/'
+                'http://localhost:4500/favorites/'
             );
         });
     });

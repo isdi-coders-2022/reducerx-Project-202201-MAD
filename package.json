@@ -30,7 +30,7 @@
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
-        "test:coverage": "react-scripts test --coverage",
+        "test:coverage": "CI=true npm test -- --env=jsdom --coverage",
         "eject": "react-scripts eject",
         "lint": "eslint ."
     },
