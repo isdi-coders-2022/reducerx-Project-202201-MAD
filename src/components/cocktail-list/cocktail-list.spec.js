@@ -133,8 +133,8 @@ describe('Given CocktailList', () => {
     test('next button click', () => {
         render(
             <BrowserRouter>
-                <Context.Provider>
-                    <CocktailList value={mockPrevNext} />
+                <Context.Provider value={mockPrevNext}>
+                    <CocktailList />
                 </Context.Provider>
             </BrowserRouter>
         );
@@ -145,8 +145,8 @@ describe('Given CocktailList', () => {
     test('previous button click', () => {
         render(
             <BrowserRouter>
-                <Context.Provider>
-                    <CocktailList value={mockPrevNext} />
+                <Context.Provider value={mockPrevNext}>
+                    <CocktailList />
                 </Context.Provider>
             </BrowserRouter>
         );
