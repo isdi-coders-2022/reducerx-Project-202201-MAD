@@ -25,7 +25,7 @@ describe('Test for App Router', () => {
         expect(screen.getByText('PageCocktailMock')).toBeInTheDocument();
     });
 
-    // console.log(prettyDOM(div));
+    // console.log(prettyDOM());
 
     // const linkElement = screen.getByText(
     //     /Shaked and mixed by ReducerX with love/i
