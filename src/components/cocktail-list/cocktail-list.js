@@ -54,6 +54,7 @@ export function CocktailList() {
                         {indexMarker > 7 && (
                             <button
                                 className="cocktails-navigation__previous"
+                                testID="btn-prev"
                                 onClick={handleOnClickPrev}
                                 value="prev"
                                 type="button"
@@ -65,6 +66,7 @@ export function CocktailList() {
                             <button
                                 className="cocktails-navigation__next"
                                 onClick={handleOnClickNext}
+                                testID="btn-next"
                                 value="next"
                                 type="button"
                             >
