@@ -13,22 +13,12 @@ export function Details() {
     useEffect(() => {
         api.getDetails(detailsURL)
             .then((resp) => {
-                // console.log(resp);
                 setState(resp.data.drinks[0]);
             })
             .catch((error) => console.log(error));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    // state.forEach((element) => {
-    //     if (element !== null) {
-    //         newState.push(element);
-    //     }
-    // });
-    // function bouncer(arr) {
-    //     return arr.filter(Boolean);
-    // }
-    // bouncer(state);
     const cocktailInfo = state;
     console.log(cocktailInfo);
 

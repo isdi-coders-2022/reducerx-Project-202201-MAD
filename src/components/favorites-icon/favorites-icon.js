@@ -30,7 +30,11 @@ export function FavoritesIcon({ cocktailId, cocktail }) {
     };
 
     function isFav() {
-        if (isFavorite === true) {
+        if (
+            store.favorites.some((element) => {
+                if (element.id === cocktailId) return true;
+            })
+        ) {
             deleteCocktail(cocktailId);
         } else {
             const newCocktailInfo = { ...cocktail, id: cocktail.idDrink };
