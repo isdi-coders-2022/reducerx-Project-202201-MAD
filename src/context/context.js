@@ -37,11 +37,11 @@ export function ContextProvider({ children }) {
     };
 
     // // const isFav = (id) => {};
-    const updateCocktail = (cocktail) => {
-        api.update(cocktail).then((resp) => {
-            dispatch(actions.toggleCocktail(resp.data));
-        });
-    };
+    // const updateCocktail = (cocktail) => {
+    //     api.update(cocktail).then((resp) => {
+    //         dispatch(actions.toggleCocktail(resp.data));
+    //     });
+    // };
 
     const deleteCocktail = (cocktail) => {
         api.removeFav(cocktail).then((resp) => {
@@ -55,7 +55,7 @@ export function ContextProvider({ children }) {
         store,
         addCocktail,
         deleteCocktail,
-        updateCocktail,
+        // updateCocktail,
     };
     return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 }
