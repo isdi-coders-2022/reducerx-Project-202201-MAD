@@ -1,16 +1,31 @@
 import { render, screen } from '@testing-library/react';
+
+import Hamburger from 'hamburger-react';
 import { Header } from './header';
+import { Menu } from './menu';
+import { LoginButton } from '../auth0/LoginButton';
 
 describe('Given the component function Header', () => {
     describe('When calling the Header function', () => {
-        test('An h1 and image should be loaded', () => {
+        test('An image should be rendererd', () => {
             render(<Header />);
-            const headerTestComponent = new Header('#headerID');
-
-            expect(headerTestComponent).toBeDefined();
-
-            const textElement = screen.getByText(/Home/i);
-            expect(textElement).toBeInTheDocument();
+            const headerImageAlt = screen.getByAltText('Neon cocktail logo');
+            expect(headerImageAlt).toBeInTheDocument();
+        });
+        test('The desktop menu should be rendered', () => {
+            render(<Header />);
+            const template = <Menu />;
+            expect(template).toBeDefined();
+        });
+        test('The login button should appear', () => {
+            render(<Header />);
+            const template = <LoginButton />;
+            expect(template).toBeDefined();
+        });
+        test('The hamburger menu icon should appear', () => {
+            render(<Header />);
+            const template = <Hamburger />;
+            expect(template).toBeDefined();
         });
     });
 });
