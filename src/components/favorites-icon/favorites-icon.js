@@ -10,18 +10,11 @@ export function FavoritesIcon({ cocktailId, cocktail }) {
         let checkFav;
         if (
             window.location.pathname.includes('/details') ||
-            window.location.pathname.includes('/')
+            window.location.pathname.includes('/favorites')
         ) {
             checkFav = store.favorites.find((item) =>
                 item ? item.id === cocktailId : false
             );
-            if (checkFav) {
-                checkFav = true;
-            } else {
-                checkFav = false;
-            }
-        } else if (window.location.pathname === '/favorites') {
-            checkFav = store.favorites.find((item) => item.id === cocktailId);
             if (checkFav) {
                 checkFav = true;
             } else {
