@@ -5,14 +5,13 @@ export function Menu({ menuOptions }) {
     return (
         <nav className="desktop-nav">
             <ul className="desktop-nav__menu">
-                {menuOptions &&
-                    Object.keys(menuOptions).map((item) => (
-                        <li className="menuitem" key={item.path}>
-                            <Link className="menu__item-link" to={item.path}>
-                                {item.label}
-                            </Link>
-                        </li>
-                    ))}
+                {menuOptions.map((item) => (
+                    <li className="menuitem" key={item.path}>
+                        <Link className="menu__item-link" to={item.path}>
+                            {item.label}
+                        </Link>
+                    </li>
+                ))}
             </ul>
         </nav>
     );
