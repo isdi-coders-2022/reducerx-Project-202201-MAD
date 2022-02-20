@@ -30,20 +30,6 @@ export function CocktailListFav() {
                             </li>
                         ))}
                     </ul>
-                    <div className="cocktails-navigation-fav">
-                        <button
-                            type="button"
-                            className="cocktails-navigation-fav__previous"
-                        >
-                            Previous
-                        </button>
-                        <button
-                            type="button"
-                            className="cocktails-navigation-fav__next"
-                        >
-                            Next
-                        </button>
-                    </div>
                 </main>
             ) : (
                 <p>Loading</p>

@@ -1,17 +1,14 @@
-/* eslint-disable array-callback-return */
-/* eslint-disable consistent-return */
 import { useContext } from 'react';
 import { Context } from '../../context/context';
-/* eslint-disable jsx-a11y/click-events-have-key-events */
+
 export function FavoritesIcon({ cocktailId, cocktail }) {
     const { store, deleteCocktail, addCocktail } = useContext(Context);
 
     function isFav() {
-        if (
-            store.favorites.some((element) => {
-                if (element.id === cocktailId) return true;
-            })
-        ) {
+        const data = store.favorites.find(
+            (element) => element.id === cocktailId
+        );
+        if (data) {
             deleteCocktail(cocktailId);
         } else {
             const newCocktailInfo = { ...cocktail, id: cocktail.idDrink };
@@ -21,7 +18,7 @@ export function FavoritesIcon({ cocktailId, cocktail }) {
     }
     return (
         // eslint-disable-next-line jsx-a11y/interactive-supports-focus
-        <div role="button" onClick={isFav}>
+        <div role="button" onKeyPress={isFav} onClick={isFav}>
             ⭐️
         </div>
     );

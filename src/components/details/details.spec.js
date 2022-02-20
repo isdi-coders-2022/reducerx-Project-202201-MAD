@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import { mockComponent } from 'react-dom/test-utils';
 import axios from 'axios';
 import { Details } from './details';
 import { FavoritesIcon } from '../favorites-icon/favorites-icon';
