@@ -1,35 +1,51 @@
-import React, { useContext } from 'react';
-import { renderHook } from '@testing-library/react-hooks';
-// eslint-disable-next-line import/named
-import { Context, store, contextValue } from '../../context/context';
+import { screen, render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import { CocktailListFav } from './cocktail-list-fav';
+import { Context } from '../../context/context';
+import { FavoritesIcon } from '../favorites-icon/favorites-icon';
 
-function ContextProvider({ children }) {
-    return <Context.Provider value={contextValue}>{children}</Context.Provider>;
-}
+const state = {
+    store: {
+        favorites: [
+            {
+                id: '11007',
+                idDrink: '11007',
+                strDrink: 'Margarita',
+            },
+        ],
+    },
+};
 
-const wrapper = ({ children }) => (
-    <ContextProvider value={contextValue}>{children}</ContextProvider>
-);
+describe('CocktailListFav', () => {
+    render(
+        <BrowserRouter>
+            <Context.Provider value={state}>
+                <CocktailListFav />
+            </Context.Provider>
+        </BrowserRouter>
+    );
 
-let result = [];
+    test('CocktailListFav should be rendered', () => {
+        expect(screen.getAllByText(/Margarita/)).toHaveLength(1);
+    });
 
-const mockSet = jest.fn().mockImplementation(() => {
-    result = [...store.favorites];
+    test('CocktailListFav tittle should be rendered', () => {
+        // eslint-disable-next-line testing-library/await-async-query
+        expect(screen.findAllByAltText(/My Cocktails/)).toBeDefined();
+    });
+    test('CocktailListFav Loading message should be rendered', () => {
+        // eslint-disable-next-line testing-library/await-async-query
+        expect(screen.findAllByAltText(/Loading/)).toBeDefined();
+    });
 
-    return result;
-});
+    test('FavoritesIcon module is rendered', () => {
+        render(
+            <BrowserRouter>
+                <FavoritesIcon />
+            </BrowserRouter>
+        );
 
-const mockUseContext = jest.fn().mockImplementation(() => ({
-    store: [],
-    set: mockSet,
-}));
-
-React.useContext = mockUseContext;
-
-describe('use', () => {
-    it('should add', () => {
-        result = renderHook(() => useContext(), { wrapper });
-
-        expect(mockSet).toBeDefined();
+        // eslint-disable-next-line testing-library/await-async-query
+        expect(screen.findAllByAltText(/⭐️/)).toBeDefined();
     });
 });

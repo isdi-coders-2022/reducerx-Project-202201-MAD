@@ -1,4 +1,4 @@
-import { render, screen, prettyDOM } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
 import { Header } from './components/header/header';

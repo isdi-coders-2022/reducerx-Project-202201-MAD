@@ -15,10 +15,11 @@ export const addCocktail = (favorites) => ({
     favorites,
 });
 
-export const toggleCocktail = (cocktail) => ({
-    type: cocktailActionTypes.toggle,
-    cocktail,
-});
+// will be use in future
+// export const toggleCocktail = (cocktail) => ({
+//     type: cocktailActionTypes.toggle,
+//     cocktail,
+// });
 
 export const removeCocktail = (favorites) => ({
     type: cocktailActionTypes.remove,
