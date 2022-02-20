@@ -20,7 +20,6 @@ export function Details() {
     }, []);
 
     const cocktailInfo = state;
-    console.log(cocktailInfo);
 
     return (
         <div>

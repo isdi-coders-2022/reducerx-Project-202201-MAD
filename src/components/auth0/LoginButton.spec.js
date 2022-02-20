@@ -1,7 +1,7 @@
 import { useAuth0 } from '@auth0/auth0-react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import LoginButton from './LoginButton';
+import { LoginButton } from './LoginButton';
 
 jest.mock('@auth0/auth0-react');
 
@@ -22,7 +22,7 @@ describe('Given the LoginButton component', () => {
     describe('When called', () => {
         test('It renders', () => {
             render(<LoginButton />);
-            expect(screen.getAllByText(/Log In/)).toBeInTheDocument();
+            expect(screen.getByText(/Log In/)).toBeInTheDocument();
         });
     });
     describe('When clicked', () => {

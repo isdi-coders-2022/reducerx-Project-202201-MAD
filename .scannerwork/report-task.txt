@@ -2,5 +2,5 @@ projectKey=Cocktails
 serverUrl=http://localhost:9000
 serverVersion=9.2.0.49834
 dashboardUrl=http://localhost:9000/dashboard?id=Cocktails
-ceTaskId=AX8TlanB3v2plSAIkGdZ
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AX8TlanB3v2plSAIkGdZ
+ceTaskId=AX8WpaorL3xlmrEPFS7G
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX8WpaorL3xlmrEPFS7G

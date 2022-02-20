@@ -11,7 +11,7 @@ const user = {
     sub: 'google-oauth2|2147627834623744883746',
 };
 
-describe('Given the LoginButton component', () => {
+describe('Given the component', () => {
     beforeEach(() => {
         useAuth0.mockReturnValue({
             isAuthenticated: true,
