@@ -130,7 +130,7 @@ describe('Given CocktailList', () => {
         );
         expect(
             screen.queryByDisplayValue('indexMarker-text')
-        ).toHaveBeenCalledTimes('0');
+        ).toHaveBeenCalledTimes('1');
     });
 });
 describe('Given CocktailList buttons Next and Previous', () => {
@@ -158,7 +158,7 @@ describe('Given CocktailList buttons Next and Previous', () => {
         );
 
         fireEvent.click(screen.queryByTestId('btn-next'));
-        expect(screen.getByDisplayValue('Next')).toHaveTextContent();
+        expect(screen.getByText('Next')).toHaveTextContent();
         expect(screen.getByTestId('btn-next')).toBeInTheDocument();
         expect(screen.queryByTestId('btn-next')).not.toBeInTheDocument();
     });
