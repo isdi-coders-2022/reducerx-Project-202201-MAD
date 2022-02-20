@@ -1,5 +1,6 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, userEvent, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import { ReactDOM } from 'react';
 import { Context } from '../../context/context';
 import { CocktailList } from './cocktail-list';
 
@@ -41,52 +42,52 @@ const mockPrevNext = {
             },
             {
                 id: '15348',
-                idDrink: '15346',
+                idDrink: '15348',
                 strDrink: '155 Belmont',
             },
             {
                 id: '15349',
-                idDrink: '15346',
+                idDrink: '15349',
                 strDrink: '155 Belmont',
             },
             {
                 id: '15350',
-                idDrink: '15346',
+                idDrink: '15350',
                 strDrink: '155 Belmont',
             },
             {
                 id: '15351',
-                idDrink: '15346',
+                idDrink: '15351',
                 strDrink: '155 Belmont',
             },
             {
                 id: '15352',
-                idDrink: '15346',
+                idDrink: '15352',
                 strDrink: '155 Belmont',
             },
             {
                 id: '15353',
-                idDrink: '15346',
+                idDrink: '15353',
                 strDrink: '155 Belmont',
             },
             {
                 id: '15354',
-                idDrink: '15346',
+                idDrink: '15354',
                 strDrink: '155 Belmont',
             },
             {
                 id: '15355',
-                idDrink: '15346',
+                idDrink: '15355',
                 strDrink: '155 Belmont',
             },
             {
                 id: '15356',
-                idDrink: '15346',
+                idDrink: '15356',
                 strDrink: '155 Belmont',
             },
             {
                 id: '15357',
-                idDrink: '15346',
+                idDrink: '15357',
                 strDrink: '155 Belmont',
             },
         ],
@@ -118,7 +119,6 @@ describe('Given CocktailList component', () => {
         });
     });
 });
-
 describe('Given CocktailList', () => {
     test('display indexMarker', () => {
         render(
@@ -128,7 +128,25 @@ describe('Given CocktailList', () => {
                 </Context.Provider>
             </BrowserRouter>
         );
-        expect(screen.queryByTestId('indexMarker-text')).toHaveTextContent('0');
+        expect(
+            screen.queryByDisplayValue('indexMarker-text')
+        ).toHaveBeenCalledTimes('0');
+    });
+});
+describe('Given CocktailList buttons Next and Previous', () => {
+    test('previous button click', () => {
+        render(
+            <BrowserRouter>
+                <Context.Provider value={mockPrevNext}>
+                    <CocktailList />
+                </Context.Provider>
+            </BrowserRouter>
+        );
+
+        fireEvent.click(screen.queryByTestId('btn-prev'));
+        expect(screen.getByText('Previous')).toHaveTextContent();
+        expect(screen.getByTestId('btn-prev')).toBeInTheDocument();
+        expect(screen.queryByTestId('btn-prev')).not.toBeInTheDocument();
     });
     test('next button click', () => {
         render(
@@ -140,18 +158,8 @@ describe('Given CocktailList', () => {
         );
 
         fireEvent.click(screen.queryByTestId('btn-next'));
-        expect(screen.queryByTestId('Next')).toHaveTextContent('1');
-    });
-    test('previous button click', () => {
-        render(
-            <BrowserRouter>
-                <Context.Provider value={mockPrevNext}>
-                    <CocktailList />
-                </Context.Provider>
-            </BrowserRouter>
-        );
-
-        fireEvent.click(screen.queryByTestId('btn-prev'));
-        expect(screen.queryByTestId('Previous')).toHaveTextContent('-1');
+        expect(screen.getByDisplayValue('Next')).toHaveTextContent();
+        expect(screen.getByTestId('btn-next')).toBeInTheDocument();
+        expect(screen.queryByTestId('btn-next')).not.toBeInTheDocument();
     });
 });
