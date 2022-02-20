@@ -1,32 +1,8 @@
-import { useContext, useState, useEffect } from 'react';
+import { useContext } from 'react';
 import { Context } from '../../context/context';
 
 export function FavoritesIcon({ cocktailId, cocktail }) {
     const { store, deleteCocktail, addCocktail } = useContext(Context);
-    const [isFavorite, setIsFavorite] = useState(false);
-
-    const CheckIsFav = () => {
-        let checkFav;
-        if (
-            window.location.pathname.includes('/details') ||
-            window.location.pathname.includes('/')
-        ) {
-            checkFav = store.favorites.find((item) => item.id === cocktailId);
-            if (checkFav) {
-                checkFav = true;
-            } else {
-                checkFav = false;
-            }
-        } else if (window.location.pathname === '/favorites') {
-            checkFav = store.favorites.find((item) => item.id === cocktailId);
-            if (checkFav) {
-                checkFav = true;
-            } else {
-                checkFav = false;
-            }
-        }
-        setIsFavorite(checkFav);
-    };
 
     function isFav() {
         const data = store.favorites.find(
@@ -36,18 +12,14 @@ export function FavoritesIcon({ cocktailId, cocktail }) {
             deleteCocktail(cocktailId);
         } else {
             const newCocktailInfo = { ...cocktail, id: cocktail.idDrink };
+            console.log(newCocktailInfo);
             addCocktail(newCocktailInfo);
         }
     }
-
-    useEffect(() => {
-        CheckIsFav();
-    });
-
     return (
         // eslint-disable-next-line jsx-a11y/interactive-supports-focus
         <div role="button" onKeyPress={isFav} onClick={isFav}>
-            {isFavorite ? '🗑' : '⭐️'}
+            ⭐️
         </div>
     );
 }
