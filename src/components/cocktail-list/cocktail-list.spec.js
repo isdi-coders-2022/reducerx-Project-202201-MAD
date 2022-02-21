@@ -1,6 +1,7 @@
-import { render, screen, userEvent, fireEvent } from '@testing-library/react';
+/* eslint-disable testing-library/await-async-query */
+import { render, screen, fireEvent, userEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { ReactDOM } from 'react';
+import { useState as useStateMock } from 'react';
 import { Context } from '../../context/context';
 import { CocktailList } from './cocktail-list';
 
@@ -33,66 +34,81 @@ const mockPrevNext = {
             {
                 id: '15346',
                 idDrink: '15346',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15347',
                 idDrink: '15347',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15348',
                 idDrink: '15348',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15349',
                 idDrink: '15349',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15350',
                 idDrink: '15350',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15351',
                 idDrink: '15351',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15352',
                 idDrink: '15352',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15353',
                 idDrink: '15353',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15354',
                 idDrink: '15354',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15355',
                 idDrink: '15355',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15356',
                 idDrink: '15356',
-                strDrink: '155 Belmont',
             },
             {
                 id: '15357',
                 idDrink: '15357',
-                strDrink: '155 Belmont',
             },
         ],
     },
+    loadCocktails: jest.fn({
+        store: {
+            cocktails: [
+                {
+                    id: '15346',
+                    idDrink: '15346',
+                },
+                {
+                    id: '15347',
+                    idDrink: '15347',
+                },
+                {
+                    id: '15348',
+                    idDrink: '15348',
+                },
+            ],
+        },
+    }),
 };
+
+function Button({ onClick, children }) {
+    return (
+        <button type="button" onClick={onClick}>
+            {children}
+        </button>
+    );
+}
+
 describe('first', () => {
     test('should first', () => {
         render(
@@ -119,8 +135,9 @@ describe('Given CocktailList component', () => {
         });
     });
 });
+
 describe('Given CocktailList', () => {
-    test('display indexMarker', () => {
+    test('display state', () => {
         render(
             <BrowserRouter>
                 <Context.Provider value={mockPrevNext}>
@@ -128,38 +145,58 @@ describe('Given CocktailList', () => {
                 </Context.Provider>
             </BrowserRouter>
         );
-        expect(
-            screen.queryByDisplayValue('indexMarker-text')
-        ).toHaveBeenCalledTimes('1');
+        expect(screen.getByTestId('btn-next')).toHaveBeenCalledTimes(0);
     });
 });
 describe('Given CocktailList buttons Next and Previous', () => {
-    test('previous button click', () => {
-        render(
-            <BrowserRouter>
-                <Context.Provider value={mockPrevNext}>
-                    <CocktailList />
-                </Context.Provider>
-            </BrowserRouter>
-        );
-
-        fireEvent.click(screen.queryByTestId('btn-prev'));
-        expect(screen.getByText('Previous')).toHaveTextContent();
-        expect(screen.getByTestId('btn-prev')).toBeInTheDocument();
-        expect(screen.queryByTestId('btn-prev')).not.toBeInTheDocument();
+    test('CocktailList Loading message should be rendered', () => {
+        expect(screen.findByText(/Loading/)).toBeDefined();
     });
-    test('next button click', () => {
+});
+
+describe('When pressing the Next button', () => {
+    test('Then the function loadCocktail should be called', () => {
         render(
-            <BrowserRouter>
-                <Context.Provider value={mockPrevNext}>
+            <Context.Provider value={mockPrevNext}>
+                <BrowserRouter>
                     <CocktailList />
-                </Context.Provider>
-            </BrowserRouter>
+                </BrowserRouter>
+            </Context.Provider>
         );
 
-        fireEvent.click(screen.queryByTestId('btn-next'));
-        expect(screen.getByText('Next')).toHaveTextContent();
-        expect(screen.getByTestId('btn-next')).toBeInTheDocument();
-        expect(screen.queryByTestId('btn-next')).not.toBeInTheDocument();
+        fireEvent.click(screen.getByText(/Next/i));
+        expect(mockPrevNext.loadCocktails).toHaveBeenCalledTimes(1);
+    });
+});
+describe('When pressing the Previous button', () => {
+    test('Then the function loadCocktail should be called', () => {
+        render(
+            <Context.Provider value={mockPrevNext}>
+                <BrowserRouter>
+                    <CocktailList />
+                </BrowserRouter>
+            </Context.Provider>
+        );
+
+        fireEvent.click(screen.getByText(/Previous/i));
+        expect(mockPrevNext.loadCocktails).toHaveBeenCalledTimes(1);
+    });
+});
+
+describe('When pressing Next', () => {
+    test('calls onClick Next when clicked', () => {
+        const handleClickNext = jest.fn();
+        render(<Button onClick={handleClickNext}>Next</Button>);
+        fireEvent.click(screen.getByText(/Next/i));
+        expect(handleClickNext).toHaveBeenCalledTimes(1);
+    });
+});
+
+describe('When pressing Previous', () => {
+    test('calls onClick Next when clicked', () => {
+        const handleClickNext = jest.fn();
+        render(<Button onClick={handleClickNext}>Previous</Button>);
+        fireEvent.click(screen.getByText(/Previous/i));
+        expect(handleClickNext).toHaveBeenCalledTimes(1);
     });
 });
